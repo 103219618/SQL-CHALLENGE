@@ -175,3 +175,8 @@ SELECT COUNT(*) FROM Booking;
 /* There are 10 bookings when we ran the COUNT(*),
 which confirms this query in getting correct results*/
 
+SELECT COUNT(*)
+FROM Booking
+WHERE Payment = 200;
+/* There are 6 payments that have a value of 200 in them,
+and this query shows the correct count*/
