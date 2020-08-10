@@ -165,10 +165,13 @@ SELECT * FROM [Task 5];
 
 -- TASK 6
 SELECT * FROM CLIENT;
-
 SELECT COUNT(*) FROM CLIENT;
-
 /* There are four clients in the list
 and when we ran the COUNT(*) it returned a value of 4,
-which confirms the query is correct
+which confirms the query is correct*/
+
+SELECT * FROM Booking;
+SELECT COUNT(*) FROM Booking;
+/* There are 10 bookings when we ran the COUNT(*),
+which confirms this query in getting correct results*/
 
