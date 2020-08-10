@@ -118,7 +118,50 @@ VALUES
     (3, 'West', 2016, 'Jan', 29, '2015-12-18', 200);
 
 
+SELECT * FROM Client;
+SELECT * FROM Tour;
+SELECT * FROM Event;
+SELECT * FROM Booking;
+
+
+-- TASK 4 QUERY 1
+SELECT C.Surname, C.GivenName, T.TourName, T.Description, E.EventYear, E.EventMonth, E.EventDay, E.EventFee, B.DateBooked, B.Payment
+FROM Client C
+INNER JOIN Booking B
+ON C.ClientID = B.ClientID
+
+INNER JOIN Event E
+ON E.EventYear = B.EventYear AND E.EventMonth = B.EventMonth AND E.EventDay = B.EventDay
+
+INNER JOIN Tour T
+ON E.TourName = T.TourName;
+
+-- TASK 4 QUERY 2
+SELECT EventMonth, TourName, Count(*) AS 'Num Bookings'
+FROM Booking
+GROUP BY EventMonth, TourName;
+
+-- TASK 4 QUERY 3
+SELECT *
+FROM Booking
+WHERE Payment > (SELECT AVG(Payment) FROM Booking);
+
+-- TASK 5
+CREATE VIEW [Task 5] AS
+SELECT C.Surname AS 'Client Last Name', C.GivenName AS 'Client First Name', T.TourName, T.Description, E.EventYear, E.EventMonth, E.EventDay, E.EventFee, B.DateBooked, B.Payment
+FROM Client C
+INNER JOIN Booking B
+ON C.ClientID = B.ClientID
+
+INNER JOIN Event E
+ON E.EventYear = B.EventYear AND E.EventMonth = B.EventMonth AND E.EventDay = B.EventDay
+
+INNER JOIN Tour T
+ON E.TourName = T.TourName;
 
 
 
 SELECT * FROM [Task 5];
+
+-- TASK 6
+
